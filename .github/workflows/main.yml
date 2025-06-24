@@ -22,7 +22,8 @@ jobs:
       - name: Run resume build container
         run: |
           docker run --name resume-container resume-image
-          docker cp resume-container:/cv/main.pdf main.pdf
+          docker cp resume-container:/cv/deedy_resume-reversed.pdf 
+main.pdf
           docker rm resume-container
 
       - name: Upload PDF artifact
