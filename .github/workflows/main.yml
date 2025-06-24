@@ -3,7 +3,7 @@ name: Build Resume PDF
 on:
   push:
     branches:
-      - main  # или master, если у тебя так называется ветка
+      - main
 
 jobs:
   build:
