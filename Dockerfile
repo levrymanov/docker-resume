@@ -25,5 +25,5 @@ COPY CV /cv
 
 WORKDIR /cv
 
-CMD pdflatex -interaction=nonstopmode main.tex
+CMD pdflatex -interaction=nonstopmode deedy_resume-reversed.tex
 
