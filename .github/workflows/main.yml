@@ -1,0 +1,33 @@
+name: Build Resume PDF
+
+on:
+  push:
+    branches:
+      - main  # или master, если у тебя так называется ветка
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Build Docker image
+        run: docker build -t resume-image .
+
+      - name: Run resume build container
+        run: |
+          docker run --name resume-container resume-image
+          docker cp resume-container:/cv/main.pdf main.pdf
+          docker rm resume-container
+
+      - name: Upload PDF artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: resume-pdf
+          path: main.pdf
+
