@@ -14,3 +14,4 @@
 - Резюме доступно по ссылке: 
 [https://github.com/levrymanov/docker-resume])
 
+Рыманов Лев 242 группа
